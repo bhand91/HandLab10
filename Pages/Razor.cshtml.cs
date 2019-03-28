@@ -5,11 +5,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HandLab10.Pages
 {
     public class RazorModel : PageModel
     {
+        [BindProperty]
+        [Display(Name = "First Name")]
+        public string FirstName {get; set;}
+
+        [BindProperty]
+        [Display(Name = "Last Name")]
+        public string LastName {get; set;}
+
+        public string Display{get; set;}
+
         private readonly ILogger _log;
         public RazorModel(ILogger<RazorModel> log)
         {
@@ -17,10 +29,11 @@ namespace HandLab10.Pages
         }
         public void OnPost()
         {
-            _log.LogInformation("OnPost() Called");
+            _log.LogInformation($"{FirstName} {LastName}");
         }
         public void OnGet()
         {
+            Display = ($"{FirstName} {LastName}");
 
         }
     }
