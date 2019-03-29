@@ -13,20 +13,17 @@
                     <label asp-for="FirstName" class="control-label"></label>
                     <input asp-for="FirstName" class="form-control" />
                     <span asp-validation-for="FirstName" class = "text-danger"></span>
-                </div>
-                <div class="form-group">
+                
                     <label asp-for="LastName" class="control-label"></label>
                     <input asp-for="LastName" class="form-control" />
-                    <space asp-validation-for="LastName" class="text-danger"></space>
-                </div>
-                <div class="form-group">
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+             
                     <label asp-for="CreditCard" class="control-label"></label>
                     <input asp-for="CreditCard" class="form-control" />
-                    <space asp-validation-for="CreditCard" class="text-danger"></space>
+                    <span asp-validation-for="CreditCard" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Submit" class="btn btn-primary" />
-                    <input type="reset" value="Clear" />
                 </div>
             </form>
         </div>
