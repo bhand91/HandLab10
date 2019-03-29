@@ -12,13 +12,25 @@ namespace HandLab10.Pages
 {
     public class RazorModel : PageModel
     {
+        [StringLength(10, MinimumLength = 3)]
         [BindProperty]
+        [Required]
         [Display(Name = "First Name")]
         public string FirstName {get; set;}
 
-        [BindProperty]
+        
+        [StringLength(10, MinimumLength = 3)]
+        [Required]
         [Display(Name = "Last Name")]
+        [BindProperty]
         public string LastName {get; set;}
+
+        [CreditCard]
+        [Required]
+        [StringLength(16, MinimumLength = 16)]
+        [Display(Name = "Credit Card")]
+        [BindProperty]
+        public string CreditCard {get; set;}
 
         public string Display{get; set;}
 
@@ -29,7 +41,7 @@ namespace HandLab10.Pages
         }
         public void OnPost()
         {
-            _log.LogInformation($"{FirstName} {LastName}");
+            _log.LogInformation($"{FirstName} {LastName} {CreditCard}");
         }
         public void OnGet()
         {
